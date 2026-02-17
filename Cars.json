@@ -1,0 +1,26 @@
+{
+    "WR921A": {
+        "make": "Honda",
+        "model": "Civic",
+        "year": 2019,
+        "regnr": "WR921A"
+    },
+    "12CAW2": {
+        "make": "Toyota",
+        "model": "Shity_car",
+        "year": 2020,
+        "regnr": "12CAW2"
+    },
+    "OBZ487": {
+        "make": "Renault",
+        "model": "Raeaw",
+        "year": 2028,
+        "regnr": "OBZ487"
+    },
+    "XXX420": {
+        "make": "NISSAN",
+        "model": "SKYLINE",
+        "year": 1999,
+        "regnr": "XXX420"
+    }
+}
