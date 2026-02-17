@@ -16,19 +16,19 @@ cars_bp = Blueprint("cars_bp", __name__)
 def home():
     return render_template("home.html")
  
-# http://127.0.0.1:5000/get/list 
+################################### shows all cars in the json file ###################################
 @cars_bp.route("/get/list", methods=["GET"])
 def get_cars():
     with open("Cars.json", "r") as f:
         cars = json.load(f)
     return jsonify(cars)
 
-
+################################### adds a new car to the json file ###################################
 @cars_bp.route("/add/", methods=["POST"])
 def add_car():
     with open("Cars.json", "r") as f_regnr_check:
         cars_data = json.load(f_regnr_check)
-    new_car = {
+    new_car = {  ##takes the data from the user and saves it in a new dictionary, also notice the upper, very important for the regnr check later on
         "make": request.json["make"].upper(),
         "model": request.json["model"].upper(),
         "year": request.json["year"],
@@ -47,13 +47,13 @@ def add_car():
             json.dump(cars_data, f_add_car, indent=4) 
         return jsonify(new_car), 200
 
+################################### updates a car in the json file ###################################
 @cars_bp.route("/update/", methods=["PUT"])
 def update_car():
     with open("Cars.json", "r") as f_update_car:
         update_cars_data = json.load(f_update_car)
     
-    user_data = request.get_json()
-    
+    user_data = request.get_json() #takes the data from the user and saves it in a new dictionary
     regnr_to_update = user_data.get("regnr")
     regnr_to_update = regnr_to_update.upper()
 
@@ -72,19 +72,21 @@ def update_car():
             json.dump(update_cars_data, f_update_car, indent=4)
         return jsonify({"message": "Car updated successfully"}), 200
 
+
+################################### removes a car from the json file ###################################
 @cars_bp.route("/remove/", methods=["DELETE"])
 def remove_car():
     with open("Cars.json", "r") as f_remove_car:
         remove_cars_data = json.load(f_remove_car)
     
-    user_data = request.get_json()
+    user_data = request.get_json() #takes the data from the user and saves it in a new dictionary
     user_data_regnr = user_data.get("regnr").upper()
     
     if user_data_regnr not in remove_cars_data:
         return jsonify({"error": "Car with this registration number does not exist."}), 404
     
     else:
-        del remove_cars_data[user_data_regnr]
+        del remove_cars_data[user_data_regnr] #Del removes the car with the specified registration number from the dictionary
         
         with open("Cars.json", "w") as f_remove_car:
             json.dump(remove_cars_data, f_remove_car, indent=4)
