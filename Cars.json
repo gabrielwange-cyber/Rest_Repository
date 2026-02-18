@@ -1,0 +1,32 @@
+{
+    "WR921A": {
+        "make": "Honda",
+        "model": "Civic",
+        "year": 2019,
+        "regnr": "WR921A"
+    },
+    "OBZ487": {
+        "make": "Renault",
+        "model": "Raeaw",
+        "year": 2028,
+        "regnr": "OBZ487"
+    },
+    "1WRA23": {
+        "make": "TOYOTA",
+        "model": "RAEAW",
+        "year": 2020,
+        "regnr": "1WRA23"
+    },
+    "RAT": {
+        "make": "TOYOTA",
+        "model": "WREA",
+        "year": 2006,
+        "regnr": "RAT"
+    },
+    "YEW123": {
+        "make": "TOYOTA",
+        "model": "WREA",
+        "year": 2006,
+        "regnr": "YEW123"
+    }
+}
